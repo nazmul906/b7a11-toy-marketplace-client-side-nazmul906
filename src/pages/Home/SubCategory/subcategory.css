@@ -1,0 +1,25 @@
+.shop-by-category .category-tabs {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.shop-by-category .tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+
+.shop-by-category .tab.active {
+  background-color: #ccc;
+}
+
+.shop-by-category .tab-panel {
+  display: none;
+}
+
+.shop-by-category .tab-panel.active {
+  display: block;
+}

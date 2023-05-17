@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
@@ -31,7 +31,7 @@ const Header = () => {
                 <a>Home</a>
               </li>
               <li tabIndex={0}>
-                <a> All Toys</a>
+                <Link to="/alltoys">All Toys</Link>
 
                 <a> My Toys</a>
 
