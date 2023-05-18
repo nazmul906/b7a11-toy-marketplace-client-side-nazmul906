@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
 const Login = () => {
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const handleClick = (event) => {
     event.preventDefault();
     const form = event.target;
     const username = form.name.value;
     const password = form.password.value;
     console.log(username, password);
+    signIn(username, password)
+      .then((result) => {
+        const signedUser = result.user;
+        console.log("sign In", signedUser);
+      })
+      .catch((error) => console.log(error.message));
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const googleLogin = result.user;
+        console.log("google", googleLogin);
+      })
+      .catch((error) => console.log(error.message));
   };
   return (
     <div>
@@ -49,9 +66,21 @@ const Login = () => {
               <input className="btn btn-primary" type="submit" value="submit" />
             </div>
           </form>
-          <Link to="/register">
-            <button>regitser</button>
-          </Link>
+          <button
+            className="mt-2 btn btn-outline"
+            type="submit"
+            onClick={handleGoogleSignIn}
+          >
+            <FcGoogle></FcGoogle>
+            Google
+          </button>
+          <div className="flex items-center justify-center">
+            {" "}
+            <p>Dont you have an account?..plz register </p>
+            <Link to="/register" className="btn btn-primary mt-4">
+              <button>Regitser</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

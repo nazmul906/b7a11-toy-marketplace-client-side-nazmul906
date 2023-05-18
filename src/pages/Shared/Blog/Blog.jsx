@@ -4,7 +4,7 @@ import React from "react";
 const Blog = () => {
   return (
     <div>
-      <h5>bLOG</h5>
+      <h5>Blog</h5>
     </div>
   );
 };

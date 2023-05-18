@@ -1,7 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -46,7 +49,7 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li tabIndex={0}>
               <a> All Toys</a>
@@ -60,8 +63,13 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          {/* <a className="btn">Get started</a> */}
+          {user?.email}
         </div>
+
+        <Link to="/login" className="btn btn-primary">
+          Login
+        </Link>
       </div>
     </div>
   );

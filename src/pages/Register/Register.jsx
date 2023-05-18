@@ -1,22 +1,26 @@
 import React from "react";
-import AuthContext from "../../AuthProvider/AuthProvider";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 const Register = () => {
-  const [createuser] = useContext(AuthContext);
-  const handleRegister = () => {
+  const { createUser } = useContext(AuthContext);
+  const handleRegister = (event) => {
     event.preventDefault();
+
     const form = event.target;
     const username = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+
     console.log(username, password);
-    createuser(email, password)
+
+    createUser(email, password)
       .then((result) => {
         const signeduser = result.user;
-        console.log("registered", signedUser);
+        console.log("registered", signeduser);
       })
       .catch((error) => console.log(error.message));
   };
+
   return (
     <div class="flex justify-center items-center h-screen">
       <div class="w-full max-w-md">
