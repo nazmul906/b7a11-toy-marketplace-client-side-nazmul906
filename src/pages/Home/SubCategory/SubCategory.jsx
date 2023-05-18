@@ -1,8 +1,10 @@
 import React from "react";
 import "./subcategory.css";
 import { useState, useEffect } from "react";
+import ToyCard from "../../Display/ToyCard/ToyCard";
 const SubCategory = () => {
   const [active, setActive] = useState("disneyprincess");
+  const [toys, setToys] = useState([]);
   const handleClick = (categoryname) => {
     setActive(categoryname);
     console.log(active);
@@ -11,7 +13,7 @@ const SubCategory = () => {
     fetch(`http://localhost:5000/alltoys/${active}`, {})
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setToys(data);
       });
   }, [active]);
   return (
@@ -53,6 +55,12 @@ const SubCategory = () => {
             Animation Characters
           </li>
         </div>
+      </div>
+
+      <div>
+        {toys.map((item) => (
+          <ToyCard toy={item}></ToyCard>
+        ))}
       </div>
     </div>
   );
