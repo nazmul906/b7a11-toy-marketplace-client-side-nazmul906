@@ -40,11 +40,11 @@ const Header = () => {
               <li tabIndex={0}>
                 <Link to="/alltoys">All Toys</Link>
 
-                <a> My Toys</a>
+                <Link to="/alltoys">Add A Toy</Link>
 
-                <a> Add A Toy</a>
+                <Link to="/addtoy">My Toys</Link>
 
-                <a> Blogs</a>
+                <Link to="/blog">Blogs</Link>
               </li>
             </ul>
           </div>
@@ -56,13 +56,10 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
             <li tabIndex={0}>
-              <a> All Toys</a>
-
-              <a> My Toys</a>
-
-              <a> Add A Toy</a>
-
-              <a> Blogs</a>
+              <Link to="/alltoys">All Toys</Link>
+              <Link to="/alltoys">Add A Toy</Link>
+              <Link to="/alltoys">My Toys</Link>
+              <Link to="/alltoys">Blogs</Link>
             </li>
           </ul>
         </div>
