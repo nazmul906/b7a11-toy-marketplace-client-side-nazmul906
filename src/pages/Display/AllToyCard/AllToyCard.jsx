@@ -1,22 +1,22 @@
 import React from "react";
-
+import "./toycard.css";
 const AllToyCard = ({ alltoy }) => {
-  const {} = alltoy;
+  console.log(alltoy);
+  const { description, sellerName, subcategory, price, pictureURL } = alltoy;
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 bg-base-100 shadow-xl ">
         <figure className="px-10 pt-10">
-          <img
-            src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="Shoes"
-            className="rounded-xl"
-          />
+          <img src={pictureURL} alt="Shoes" className="rounded-xl" />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <h2 className="card-title">{sellerName}</h2>
+          <p>
+            {subcategory} <p>$ {price}</p>
+          </p>
+          <p>{description}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn btn-primary">View Details button</button>
           </div>
         </div>
       </div>

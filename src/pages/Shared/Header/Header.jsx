@@ -57,9 +57,9 @@ const Header = () => {
             </li>
             <li tabIndex={0}>
               <Link to="/alltoys">All Toys</Link>
-              <Link to="/alltoys">Add A Toy</Link>
-              <Link to="/alltoys">My Toys</Link>
-              <Link to="/alltoys">Blogs</Link>
+              <Link to="/addtoy">Add A Toy</Link>
+              <Link to="/mytoy">My Toys</Link>
+              <Link to="/blog">Blogs</Link>
             </li>
           </ul>
         </div>
