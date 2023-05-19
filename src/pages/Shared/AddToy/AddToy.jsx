@@ -27,7 +27,7 @@ const AddToy = () => {
       rating: rating,
       quantity: quantity,
       description: description,
-      sellerEmail: email,
+      email: email,
     };
     console.log(toydata);
 
