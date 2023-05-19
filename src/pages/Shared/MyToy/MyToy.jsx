@@ -13,6 +13,21 @@ const MyToy = () => {
         setMytoy(data);
       });
   }, [user]);
+
+  const handleDelete = (id) => {
+    console.log(id);
+    fetch(`http://localhost:5000/singletoy/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          const remaintoys = mytoy.filter((item) => item._id !== id);
+          setMytoy(remaintoys);
+        }
+      });
+  };
   return (
     <div>
       {/* <h4>{user.email}</h4>
@@ -48,7 +63,12 @@ const MyToy = () => {
                   <button className="btn btn-primary">update</button>
                 </td>
                 <td>
-                  <button className="btn btn-primary">delete</button>
+                  <button
+                    onClick={() => handleDelete(item._id)}
+                    className="btn btn-primary"
+                  >
+                    delete
+                  </button>
                 </td>
               </tr>
             ))}
