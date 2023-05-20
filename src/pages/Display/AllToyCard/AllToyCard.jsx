@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./toycard.css";
 const AllToyCard = ({ alltoy }) => {
   console.log(alltoy);
-  const { _id, description, sellerName, subcategory, price, pictureURL } =
+  const { _id, description, name, sellerName, subcategory, price, pictureURL } =
     alltoy;
   return (
     <div>
@@ -12,7 +12,8 @@ const AllToyCard = ({ alltoy }) => {
           <img src={pictureURL} alt="Shoes" className="rounded-xl" />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title">{sellerName}</h2>
+          <h2 className="card-title">{name}</h2>
+          <h2>{sellerName}</h2>
           <p>
             {subcategory} <p>$ {price}</p>
           </p>

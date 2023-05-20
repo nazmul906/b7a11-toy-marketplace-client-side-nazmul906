@@ -16,8 +16,14 @@ const AllToys = () => {
       });
   }, []);
 
+  // search will be implemnt by backend indexing in db
   const handleSearchByToyName = () => {
     console.log(search);
+    fetch(`http://localhost:5000/searchbytoyname/${search}`, {})
+      .then((res) => res.json())
+      .then((data) => {
+        setAlltoys(data);
+      });
   };
   return (
     <div>
