@@ -4,7 +4,6 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const UpdateToy = () => {
   const toy = useLoaderData();
-  const { user } = useContext(AuthContext);
 
   const {
     _id,
@@ -22,31 +21,32 @@ const UpdateToy = () => {
   const handleUpdateForm = (event) => {
     event.preventDefault();
     const form = event.target;
-    const photo = form.photo.value;
-    const toyname = form.name.value;
-    const sellername = form.name.value;
+    // const pictureURL = form.photo.value;
+    // const name = form.name.value;
+    // const sellername = form.name.value;
 
-    const email = email;
-    const subcategory = form.subcategory.value;
+    // const email = form.email.value;
+    // const subcategory = form.subcategory.value;
     const price = form.price.value;
-    const rating = form.rating.value;
+    // const rating = form.rating.value;
     const quantity = form.quantity.value;
     const description = form.description.value;
 
     // const toy={}
+    //   pictureURL: pictureURL,
+    //   name: name,
+    //   sellerName: sellername,
+    //   subcategory: subcategory,
     const updateToydata = {
-      pictureURL: photo,
-      name: toyname,
-      sellerName: sellername,
-      subcategory: subcategory,
       price: price,
-      rating: rating,
+      //   rating: rating,
       quantity: quantity,
       description: description,
-      email: email,
+      //   email: email,
     };
+    console.log(updateToydata);
 
-    fetch("http://localhost:5000/update/${_id}", {
+    fetch(`http://localhost:5000/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -56,6 +56,9 @@ const UpdateToy = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.modifiedCount > 0) {
+          alert("update data successfully");
+        }
         // if (data.insertedId) {
         //   alert("service update successfully");
         // }
@@ -66,7 +69,7 @@ const UpdateToy = () => {
     <div>
       <h4>Update coffe </h4>
       <form className="space-y-6" onSubmit={handleUpdateForm}>
-        <div>
+        {/* <div>
           <label>photo</label>
           <input
             className="input input-bordered w-full"
@@ -103,9 +106,9 @@ const UpdateToy = () => {
             className="input input-bordered w-full"
             required
           />
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <label>Subcategory</label>
           <select
             name="subcategory"
@@ -118,7 +121,7 @@ const UpdateToy = () => {
             <option value="frozendolls">Frozen Dolls</option>
             <option value="animation">Animation</option>
           </select>
-        </div>
+        </div> */}
         <div>
           <label>Price</label>
           <input
@@ -129,7 +132,7 @@ const UpdateToy = () => {
             required
           />
         </div>
-        <div>
+        {/* <div>
           <label>Rating</label>
           <input
             type="rating"
@@ -138,7 +141,7 @@ const UpdateToy = () => {
             className="input input-bordered w-full"
             required
           />
-        </div>
+        </div> */}
         <div>
           <label>Available quantity</label>
           <input
