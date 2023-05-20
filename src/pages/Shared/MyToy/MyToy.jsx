@@ -8,17 +8,22 @@ const MyToy = () => {
   const [mytoy, setMytoy] = useState([]);
   const [order, setOrder] = useState("ascending");
   // const [toyupdate, setToyupdate] = useState(false);
-  const url = `http://localhost:5000/alltoy?email=${user?.email}`;
+
   useEffect(() => {
+    let url = `http://localhost:5000/alltoy?email=${user?.email}`;
+    if (order === "ascending" || order === "descending") {
+      url += `&order=${order}`;
+    }
+
     fetch(url, {})
       .then((res) => res.json())
       .then((data) => {
         setMytoy(data);
       });
-  }, [user]);
+  }, [user, order]);
 
   const handleOrder = (text) => {
-    console.log(text);
+    setOrder(text);
   };
   const handleDelete = (id) => {
     console.log(id);
