@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./toycard.css";
 const AllToyCard = ({ alltoy }) => {
   console.log(alltoy);
-  const { description, sellerName, subcategory, price, pictureURL } = alltoy;
+  const { _id, description, sellerName, subcategory, price, pictureURL } =
+    alltoy;
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl ">
@@ -16,7 +18,9 @@ const AllToyCard = ({ alltoy }) => {
           </p>
           <p>{description}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">View Details button</button>
+            <Link to={`/viewdetails/${_id}`}>
+              <button className="btn btn-primary">View Details button</button>
+            </Link>
           </div>
         </div>
       </div>
