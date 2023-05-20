@@ -6,6 +6,7 @@ const MyToy = () => {
   // we need to fetch toy based on logged user. so we need thier email
   const { user } = useContext(AuthContext);
   const [mytoy, setMytoy] = useState([]);
+  const [order, setOrder] = useState("ascending");
   // const [toyupdate, setToyupdate] = useState(false);
   const url = `http://localhost:5000/alltoy?email=${user?.email}`;
   useEffect(() => {
@@ -16,6 +17,9 @@ const MyToy = () => {
       });
   }, [user]);
 
+  const handleOrder = (text) => {
+    console.log(text);
+  };
   const handleDelete = (id) => {
     console.log(id);
     fetch(`http://localhost:5000/singletoy/${id}`, {
@@ -36,8 +40,15 @@ const MyToy = () => {
       {mytoy.length} */}
       <div className="overflow-x-auto w-full">
         <div>
-          <button>Ascending</button>
-          <button>descending</button>
+          <button
+            className="btn m-2 me-2"
+            onClick={() => handleOrder("ascending")}
+          >
+            Ascending
+          </button>
+          <button className="btn" onClick={() => handleOrder("descending")}>
+            descending
+          </button>
         </div>
 
         <table className="table w-full">
