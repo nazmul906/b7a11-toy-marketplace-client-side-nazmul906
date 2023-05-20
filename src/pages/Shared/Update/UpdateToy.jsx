@@ -1,16 +1,32 @@
 import React, { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
-const AddToy = () => {
+const UpdateToy = () => {
+  const toy = useLoaderData();
   const { user } = useContext(AuthContext);
-  const handleAddtoyForm = (event) => {
+
+  const {
+    _id,
+    pictureURL,
+    name,
+    sellerName,
+    subcategory,
+    price,
+    rating,
+    quantity,
+    description,
+    email,
+  } = toy || [];
+  console.log(toy);
+  const handleUpdateForm = (event) => {
     event.preventDefault();
     const form = event.target;
     const photo = form.photo.value;
     const toyname = form.name.value;
-    const sellername = user?.displayName;
+    const sellername = form.name.value;
 
-    const email = user?.email;
+    const email = email;
     const subcategory = form.subcategory.value;
     const price = form.price.value;
     const rating = form.rating.value;
@@ -18,7 +34,7 @@ const AddToy = () => {
     const description = form.description.value;
 
     // const toy={}
-    const toydata = {
+    const updateToydata = {
       pictureURL: photo,
       name: toyname,
       sellerName: sellername,
@@ -29,41 +45,34 @@ const AddToy = () => {
       description: description,
       email: email,
     };
-    console.log(toydata);
 
-    // fetch("http://localhost:5000/addtoy", {
-    //   method: "POST",
-    //   headers: { "content-type": "application/json" },
-    //   body: JSON.stringify(toydata),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
-
-    fetch("http://localhost:5000/addtoy", {
-      method: "POST",
+    fetch("http://localhost:5000/update/${_id}", {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(toydata),
+      body: JSON.stringify(updateToydata),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
-          alert("service book successfully");
-        }
+        // if (data.insertedId) {
+        //   alert("service update successfully");
+        // }
       });
   };
+
   return (
     <div>
-      <h4>Add toy here</h4>
-      <form className="space-y-6" onSubmit={handleAddtoyForm}>
+      <h4>Update coffe </h4>
+      <form className="space-y-6" onSubmit={handleUpdateForm}>
         <div>
           <label>photo</label>
           <input
             className="input input-bordered w-full"
             type="text"
             name="photo"
+            defaultValue={pictureURL}
             required
           />
         </div>
@@ -72,6 +81,7 @@ const AddToy = () => {
           <input
             type="name"
             name="name"
+            defaultValue={name}
             className="input input-bordered w-full"
           />
         </div>
@@ -80,7 +90,7 @@ const AddToy = () => {
           <input
             type="name"
             name="sname"
-            defaultValue={user?.displayName}
+            defaultValue={sellerName}
             className="input input-bordered w-full"
           />
         </div>
@@ -89,7 +99,7 @@ const AddToy = () => {
           <input
             type="email"
             name="email"
-            defaultValue={user?.email}
+            defaultValue={email}
             className="input input-bordered w-full"
             required
           />
@@ -100,6 +110,7 @@ const AddToy = () => {
           <select
             name="subcategory"
             className="select select-bordered w-full"
+            defaultValue={subcategory}
             required
           >
             <option value="">Select a sub-category</option>
@@ -113,6 +124,7 @@ const AddToy = () => {
           <input
             type="price"
             name="price"
+            defaultValue={price}
             className="input input-bordered w-full"
             required
           />
@@ -122,6 +134,7 @@ const AddToy = () => {
           <input
             type="rating"
             name="rating"
+            defaultValue={rating}
             className="input input-bordered w-full"
             required
           />
@@ -131,6 +144,7 @@ const AddToy = () => {
           <input
             type="quantity"
             name="quantity"
+            defaultValue={quantity}
             className="input input-bordered w-full"
             required
           />
@@ -140,6 +154,7 @@ const AddToy = () => {
           <input
             type="description"
             name="description"
+            defaultValue={description}
             className="input input-bordered w-full"
             required
           />
@@ -152,4 +167,4 @@ const AddToy = () => {
   );
 };
 
-export default AddToy;
+export default UpdateToy;

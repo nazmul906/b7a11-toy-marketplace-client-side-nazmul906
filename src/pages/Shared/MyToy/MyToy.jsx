@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 const MyToy = () => {
   // we need to fetch toy based on logged user. so we need thier email
   const { user } = useContext(AuthContext);
   const [mytoy, setMytoy] = useState([]);
+  const [toyupdate, setToyupdate] = useState(false);
   const url = `http://localhost:5000/alltoy?email=${user?.email}`;
   useEffect(() => {
     fetch(url, {})
@@ -50,17 +52,20 @@ const MyToy = () => {
           <tbody>
             {mytoy?.map((item, index) => (
               <tr>
-                <td>{index + 1}</td>
                 <td>{item.pictureURL}</td>
                 <td>{item.name}</td>
-                <td>{item.email}</td>
                 <td>{item.sellerName}</td>
+                <td>{item.email}</td>
+
                 <td>{item.price}</td>
                 <td>{item.rating}</td>
+                <td>{item.quantity}</td>
                 <td>{item.description}</td>
 
                 <td>
-                  <button className="btn btn-primary">update</button>
+                  <Link to={`${item._id}`}>
+                    <button className="btn btn-primary">update</button>
+                  </Link>
                 </td>
                 <td>
                   <button
