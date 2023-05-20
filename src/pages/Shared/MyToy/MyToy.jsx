@@ -6,7 +6,7 @@ const MyToy = () => {
   // we need to fetch toy based on logged user. so we need thier email
   const { user } = useContext(AuthContext);
   const [mytoy, setMytoy] = useState([]);
-  const [toyupdate, setToyupdate] = useState(false);
+  // const [toyupdate, setToyupdate] = useState(false);
   const url = `http://localhost:5000/alltoy?email=${user?.email}`;
   useEffect(() => {
     fetch(url, {})
@@ -35,6 +35,11 @@ const MyToy = () => {
       {/* <h4>{user.email}</h4>
       {mytoy.length} */}
       <div className="overflow-x-auto w-full">
+        <div>
+          <button>Ascending</button>
+          <button>descending</button>
+        </div>
+
         <table className="table w-full">
           {/* head */}
           <thead>

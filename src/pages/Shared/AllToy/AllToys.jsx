@@ -4,6 +4,7 @@ import AllToyCard from "../../Display/AllToyCard/AllToyCard";
 import "./alltoys.css";
 const AllToys = () => {
   const [alltoys, setAlltoys] = useState([]);
+  const [search, setSearch] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/alltoys", {
       method: "GET",
@@ -14,9 +15,17 @@ const AllToys = () => {
         setAlltoys(data);
       });
   }, []);
+
+  const handleSearchByToyName = () => {
+    console.log(search);
+  };
   return (
     <div>
       <h4>All toys</h4>
+      <div className="p-3 text-center">
+        <input onChange={(event) => setSearch(event.target.value)} />
+        <button onClick={handleSearchByToyName}>Search</button>
+      </div>
       <div className="grid grid-cols-3">
         {" "}
         {alltoys.map((item) => (
