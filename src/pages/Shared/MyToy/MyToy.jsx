@@ -76,7 +76,10 @@ const MyToy = () => {
           <tbody>
             {mytoy?.map((item, index) => (
               <tr>
-                <td>{item.pictureURL}</td>
+                <td>
+                  {/* {item.pictureURL} */}
+                  <img src={pictureURL} alt="Shoes" className="rounded-xl" />
+                </td>
                 <td>{item.name}</td>
                 <td>{item.sellerName}</td>
                 <td>{item.email}</td>
