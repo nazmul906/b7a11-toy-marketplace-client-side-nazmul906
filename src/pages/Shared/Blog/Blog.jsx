@@ -3,11 +3,11 @@ import React from "react";
 
 const Blog = () => (
   <div>
-    <h2>
+    <h2 className="font-bold text-2xl mb-2">
       What is an access token and refresh token? How do they work and where
       should we store them on the client-side?
     </h2>
-    <p>
+    <p className="mb-2">
       access token is an authorization token issued with jwt standard from
       server to user to authorize his access to protected component.Acess token
       has short time expire date.
@@ -19,8 +19,10 @@ const Blog = () => (
       we should we store them on http only cookies or localstorage while
       broowser cookie is more safer to store token
     </p>
-    <h2>Compare SQL and NoSQL databases? </h2>
-    <p>
+    <h2 className="font-bold text-2xl mb-2">
+      Compare SQL and NoSQL databases?{" "}
+    </h2>
+    <p className="mb-2">
       We know that sql is structure query language database which use to
       maintain relational database.Example;mysql,postgreSQL. It maintain row
       column format to store data which is predefined schema where Mongodb has
@@ -31,8 +33,10 @@ const Blog = () => (
       dynamic.It has property like consistency, availability, partition
       tolerance.
     </p>
-    <h2>What is express js? What is Nest JS ?</h2>
-    <p>
+    <h2 className="font-bold text-2xl mb-2">
+      What is express js? What is Nest JS ?
+    </h2>
+    <p className="mb-2">
       Express js is a framework is build node js based application.It has
       simplest api which easy to use and it also offer built in middleware to
       integrate mongodb
@@ -40,8 +44,10 @@ const Blog = () => (
       Nextjs used on express js to add additional benefit like dependency
       injection, typescript support.
     </p>
-    <h2>What is MongoDB aggregate and how does it work ?</h2>
-    <p>
+    <h2 className="font-bold text-2xl mb-2">
+      What is MongoDB aggregate and how does it work ?
+    </h2>
+    <p className="mb-2">
       We know that aggregation is a technque to process large volume of data
       with complex query to find a output.
       <br />
