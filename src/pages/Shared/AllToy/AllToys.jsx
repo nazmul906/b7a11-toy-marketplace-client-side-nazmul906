@@ -33,7 +33,6 @@ const AllToys = () => {
   };
   return (
     <div>
-      <h4>All toys</h4>
       <div className="p-3 text-center">
         <input
           className="border border-blue-500"

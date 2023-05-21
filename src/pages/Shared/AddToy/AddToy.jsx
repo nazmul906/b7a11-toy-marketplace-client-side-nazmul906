@@ -53,7 +53,8 @@ const AddToy = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          alert("service book successfully");
+          alert("toy added successfully");
+          reset.form();
         }
       });
   };

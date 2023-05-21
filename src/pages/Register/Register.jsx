@@ -3,6 +3,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 const Register = () => {
   const { createUser, updateUserData } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const handleRegister = (event) => {
     event.preventDefault();
 
@@ -93,6 +94,9 @@ const Register = () => {
             <input className="btn btn-primary" type="submit" value="submit" />
           </div>
         </form>
+        <div>
+          <p className="">{error}</p>
+        </div>
       </div>
     </div>
   );
