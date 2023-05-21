@@ -10,7 +10,10 @@ const SubCategory = () => {
     console.log(active);
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/alltoys/${active}`, {})
+    fetch(
+      `https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/alltoys/${active}`,
+      {}
+    )
       .then((res) => res.json())
       .then((data) => {
         setToys(data);

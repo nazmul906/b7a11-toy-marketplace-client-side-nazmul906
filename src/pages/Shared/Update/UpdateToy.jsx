@@ -46,13 +46,16 @@ const UpdateToy = () => {
     };
     console.log(updateToydata);
 
-    fetch(`http://localhost:5000/update/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateToydata),
-    })
+    fetch(
+      `https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/update/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateToydata),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

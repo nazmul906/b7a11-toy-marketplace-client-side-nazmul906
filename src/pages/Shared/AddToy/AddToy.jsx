@@ -31,7 +31,7 @@ const AddToy = () => {
     };
     console.log(toydata);
 
-    // fetch("http://localhost:5000/addtoy", {
+    // fetch("https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/addtoy", {
     //   method: "POST",
     //   headers: { "content-type": "application/json" },
     //   body: JSON.stringify(toydata),
@@ -39,13 +39,16 @@ const AddToy = () => {
     //   .then((res) => res.json())
     //   .then((data) => console.log(data));
 
-    fetch("http://localhost:5000/addtoy", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(toydata),
-    })
+    fetch(
+      "https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/addtoy",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(toydata),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

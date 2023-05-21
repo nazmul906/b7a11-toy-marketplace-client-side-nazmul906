@@ -1,9 +1,15 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleClick = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -14,8 +20,13 @@ const Login = () => {
       .then((result) => {
         const signedUser = result.user;
         console.log("sign In", signedUser);
+        form.reset();
+        navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -23,6 +34,7 @@ const Login = () => {
       .then((result) => {
         const googleLogin = result.user;
         console.log("google", googleLogin);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error.message));
   };
@@ -66,6 +78,9 @@ const Login = () => {
               <input className="btn btn-primary" type="submit" value="submit" />
             </div>
           </form>
+          <div>
+            <p className="">{error}</p>
+          </div>
           <button
             className="mt-2 btn btn-outline"
             type="submit"

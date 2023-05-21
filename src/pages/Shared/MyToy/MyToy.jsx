@@ -10,7 +10,7 @@ const MyToy = () => {
   // const [toyupdate, setToyupdate] = useState(false);
 
   useEffect(() => {
-    let url = `http://localhost:5000/alltoy?email=${user?.email}`;
+    let url = `https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/alltoy?email=${user?.email}`;
     if (order === "ascending" || order === "descending") {
       url += `&order=${order}`;
     }
@@ -27,9 +27,12 @@ const MyToy = () => {
   };
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/singletoy/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/singletoy/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

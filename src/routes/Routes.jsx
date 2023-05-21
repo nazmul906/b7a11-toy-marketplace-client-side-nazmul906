@@ -11,6 +11,7 @@ import AddToy from "../pages/Shared/AddToy/AddToy";
 import MyToy from "../pages/Shared/MyToy/MyToy";
 import UpdateToy from "../pages/Shared/Update/UpdateToy";
 import ViewDetails from "../pages/Shared/Details/ViewDetails";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,25 +39,47 @@ const router = createBrowserRouter([
       },
       {
         path: "addtoy",
-        element: <AddToy></AddToy>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AddToy></AddToy>
+          </PrivateRoute>
+        ),
       },
       {
         path: "mytoy",
-        element: <MyToy></MyToy>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AddToy></AddToy>
+          </PrivateRoute>
+        ),
       },
       {
         path: "mytoy/:id",
         element: <UpdateToy></UpdateToy>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singletoy/${params.id}`),
+          fetch(
+            `https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/singletoy/${params.id}`
+          ),
       },
       {
         path: "viewdetails/:id",
-        element: <ViewDetails></ViewDetails>,
+        element: (
+          <PrivateRoute>
+            <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singletoy/${params.id}`),
+          fetch(
+            `https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/singletoy/${params.id}`
+          ),
       },
     ],
+  },
+  {
+    path: "/*",
+    element: <Error></Error>,
   },
 ]);
 

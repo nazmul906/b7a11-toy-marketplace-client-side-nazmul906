@@ -6,10 +6,13 @@ const AllToys = () => {
   const [alltoys, setAlltoys] = useState([]);
   const [search, setSearch] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/alltoys", {
-      method: "GET",
-      headers: { "content-type": "application/json" },
-    })
+    fetch(
+      "https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/alltoys",
+      {
+        method: "GET",
+        headers: { "content-type": "application/json" },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setAlltoys(data);
@@ -19,7 +22,10 @@ const AllToys = () => {
   // search will be implemnt by backend indexing in db
   const handleSearchByToyName = () => {
     console.log(search);
-    fetch(`http://localhost:5000/searchbytoyname/${search}`, {})
+    fetch(
+      `https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/searchbytoyname/${search}`,
+      {}
+    )
       .then((res) => res.json())
       .then((data) => {
         setAlltoys(data);
