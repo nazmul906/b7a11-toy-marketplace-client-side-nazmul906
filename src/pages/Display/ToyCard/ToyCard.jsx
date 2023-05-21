@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
@@ -37,7 +38,14 @@ const ToyCard = ({ toy }) => {
 
           <div className="card-actions">
             {/* {user ? ( */}
-            <Link to={`/viewdetails/${_id}`}>
+            <Link
+              onClick={() => {
+                if (!user) {
+                  toast.error("You have to log in first to view details");
+                }
+              }}
+              to={`/viewdetails/${_id}`}
+            >
               <button className="btn btn-primary">View Details button</button>
             </Link>
             {/* ) : (
