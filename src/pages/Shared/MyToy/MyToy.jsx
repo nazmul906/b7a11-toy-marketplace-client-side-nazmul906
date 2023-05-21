@@ -78,7 +78,11 @@ const MyToy = () => {
               <tr>
                 <td>
                   {/* {item.pictureURL} */}
-                  <img src={pictureURL} alt="Shoes" className="rounded-xl" />
+                  <img
+                    src={item.pictureURL}
+                    alt="Shoes"
+                    className="rounded-xl"
+                  />
                 </td>
                 <td>{item.name}</td>
                 <td>{item.sellerName}</td>

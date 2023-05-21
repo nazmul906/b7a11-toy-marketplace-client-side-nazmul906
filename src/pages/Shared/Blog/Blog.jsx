@@ -3,13 +3,11 @@ import React from "react";
 
 const Blog = () => (
   <div>
-    <h5>
-      {" "}
+    <h2>
       What is an access token and refresh token? How do they work and where
       should we store them on the client-side?
-    </h5>
+    </h2>
     <p>
-      {" "}
       access token is an authorization token issued with jwt standard from
       server to user to authorize his access to protected component.Acess token
       has short time expire date.
@@ -21,7 +19,7 @@ const Blog = () => (
       we should we store them on http only cookies or localstorage while
       broowser cookie is more safer to store token
     </p>
-    <h4>Compare SQL and NoSQL databases? </h4>
+    <h2>Compare SQL and NoSQL databases? </h2>
     <p>
       We know that sql is structure query language database which use to
       maintain relational database.Example;mysql,postgreSQL. It maintain row
@@ -33,7 +31,7 @@ const Blog = () => (
       dynamic.It has property like consistency, availability, partition
       tolerance.
     </p>
-    <h4>What is express js? What is Nest JS ?</h4>
+    <h2>What is express js? What is Nest JS ?</h2>
     <p>
       Express js is a framework is build node js based application.It has
       simplest api which easy to use and it also offer built in middleware to
@@ -42,7 +40,7 @@ const Blog = () => (
       Nextjs used on express js to add additional benefit like dependency
       injection, typescript support.
     </p>
-    <h4>What is MongoDB aggregate and how does it work ?</h4>
+    <h2>What is MongoDB aggregate and how does it work ?</h2>
     <p>
       We know that aggregation is a technque to process large volume of data
       with complex query to find a output.

@@ -35,14 +35,51 @@ const AllToys = () => {
     <div>
       <h4>All toys</h4>
       <div className="p-3 text-center">
-        <input onChange={(event) => setSearch(event.target.value)} />
+        <input
+          className="border border-blue-500"
+          onChange={(event) => setSearch(event.target.value)}
+        />
         <button onClick={handleSearchByToyName}>Search</button>
       </div>
       <div className="grid grid-cols-3">
         {" "}
-        {alltoys.map((item) => (
+        {/* {alltoys.map((item) => (
           <AllToyCard key={item._id} alltoy={item}></AllToyCard>
-        ))}
+        ))} */}
+        <div>
+          <table className="table w-full">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>seller name</th>
+
+                <th>Price</th>
+                <th>Subcategory</th>
+                <th>Available quantity</th>
+                <th>Detail description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {alltoys?.map((item, index) => (
+                <tr>
+                  {/* <td>
+              
+              <img src={pictureURL} alt="Shoes" className="rounded-xl" />
+            </td> */}
+                  <td>{item.name}</td>
+                  <td>{item.sellerName}</td>
+                  {/* <td>{email}</td> */}
+
+                  <td>{item.price}</td>
+                  <td>{item.subcategory}</td>
+                  <td>{item.quantity}</td>
+                  <td>{item.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

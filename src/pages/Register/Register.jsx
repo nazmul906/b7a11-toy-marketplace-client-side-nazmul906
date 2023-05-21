@@ -28,54 +28,54 @@ const Register = () => {
   };
 
   return (
-    <div class="flex justify-center items-center h-screen">
-      <div class="w-full max-w-md">
+    <div className="flex justify-center items-center h-screen">
+      <div className="w-full max-w-md">
         <form
           onSubmit={handleRegister}
-          class="bg-white shadow-md rounded px-8 py-6"
+          className="bg-white shadow-md rounded px-8 py-6"
         >
-          <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Name
             </label>
             <input
-              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               name="name"
               type="text"
               placeholder="Enter your name"
               required
             />
           </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Email
             </label>
             <input
-              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               name="email"
               type="email"
               placeholder="Enter your email"
               required
             />
           </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Password
             </label>
             <input
-              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               name="password"
               type="password"
               placeholder="Enter your password"
               required
             />
           </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Photo
             </label>
             <input
-              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               name="photo"
               type="text"
               placeholder="your photo"

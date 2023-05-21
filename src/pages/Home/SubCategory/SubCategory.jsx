@@ -21,7 +21,7 @@ const SubCategory = () => {
   }, [active]);
   return (
     <div>
-      <h3>this is subcateogory</h3>
+      <h3 className="text-xl   text-gray-600">Select Subcategory</h3>
       <div className="shop-by-category">
         {/* <ul className="category-tabs">
           <li className="tab active" data-tab="princess">
