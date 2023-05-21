@@ -67,7 +67,14 @@ const Header = () => {
           {/* <a className="btn">Get started</a> */}
           {user?.email}
         </div>
-
+        {/* <img src={user?.photoURL} height="40" width="40" /> */}
+        <img
+          src={user?.photoURL}
+          alt="userphoto"
+          height="40"
+          width="40"
+          className="rounded-xl"
+        />
         <div>
           {user ? (
             <button onClick={handleLogout} className="btn btn-warning">

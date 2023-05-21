@@ -12,6 +12,7 @@ import MyToy from "../pages/Shared/MyToy/MyToy";
 import UpdateToy from "../pages/Shared/Update/UpdateToy";
 import ViewDetails from "../pages/Shared/Details/ViewDetails";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../pages/Error/Error";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,14 +51,17 @@ const router = createBrowserRouter([
         path: "mytoy",
         element: (
           <PrivateRoute>
-            {" "}
-            <AddToy></AddToy>
+            <MyToy></MyToy>
           </PrivateRoute>
         ),
       },
       {
         path: "mytoy/:id",
-        element: <UpdateToy></UpdateToy>,
+        element: (
+          <PrivateRoute>
+            <UpdateToy></UpdateToy>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://b7a11-toy-marketplace-server-side-nazmul906.vercel.app/singletoy/${params.id}`

@@ -2,7 +2,7 @@ import React from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserData } = useContext(AuthContext);
   const handleRegister = (event) => {
     event.preventDefault();
 
@@ -10,12 +10,18 @@ const Register = () => {
     const username = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-
+    const photoUrl = form.photo.value;
     console.log(username, password);
 
     createUser(email, password)
       .then((result) => {
         const signeduser = result.user;
+        updateUserData({ displayName: name, photoURL: photoUrl })
+          .then((result) => {
+            // const updatedUser = result.user;
+            // console.log("updated", updatedUser);
+          })
+          .catch((error) => console.log(error));
         console.log("registered", signeduser);
       })
       .catch((error) => console.log(error.message));
@@ -37,6 +43,7 @@ const Register = () => {
               name="name"
               type="text"
               placeholder="Enter your name"
+              required
             />
           </div>
           <div class="mb-4">
@@ -48,6 +55,7 @@ const Register = () => {
               name="email"
               type="email"
               placeholder="Enter your email"
+              required
             />
           </div>
           <div class="mb-4">
@@ -59,6 +67,19 @@ const Register = () => {
               name="password"
               type="password"
               placeholder="Enter your password"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">
+              Photo
+            </label>
+            <input
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              name="photo"
+              type="text"
+              placeholder="your photo"
+              required
             />
           </div>
 
